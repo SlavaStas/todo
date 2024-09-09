@@ -61,18 +61,17 @@ createdb todo_db
 1. **With Docker**
    1. Ensure Docker and Docker Compose are installed on your machine.
    2. Build and start the Docker containers:
-```bash
-docker-compose up --build
-```
+      ```bash
+      docker-compose up --build
+      ```
    3. The application will be available at http://localhost:3000.
 
 2. **Without Docker**
    - Start the server in watch mode for development:
-```bash
-npm run start:dev
-```
-
+     ```bash
+     npm run start:dev
+     ```
    - To start the server in regular mode:
-```bash
-npm run start
-```
+     ```bash
+     npm run start
+     ```
