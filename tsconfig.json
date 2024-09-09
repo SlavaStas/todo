@@ -1,38 +1,34 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
-    "module": "commonjs",
-    "outDir": "./dist",
-    "rootDir": "./src",
+    "target": "ES2021",
+    "module": "CommonJS",
+    "lib": [
+      "ES2021",
+      "DOM"
+    ],
+    "strict": true,
+    "moduleResolution": "node",
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "experimentalDecorators": true,              // Включение поддержки декораторов
-    "emitDecoratorMetadata": true,               // Генерация метаданных для декораторов (нужно для TypeORM)
+    "forceConsistentCasingInFileNames": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "sourceMap": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    },
+    "resolveJsonModule": true
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules"]
-
-//  "compilerOptions": {
-//    "target": "ES2021",                          // Версия ECMAScript для компиляции
-//    "module": "CommonJS",                        // Использование CommonJS модулей (для Node.js)
-//    "lib": ["ES2021", "DOM"],                    // Библиотеки для компиляции
-//    "strict": true,                              // Включение строгого режима TypeScript
-//    "moduleResolution": "node",                  // Разрешение модулей как в Node.js
-//    "esModuleInterop": true,                     // Совместимость с модулями CommonJS
-//    "skipLibCheck": true,                        // Пропуск проверки типов в node_modules
-//    "forceConsistentCasingInFileNames": true,    // Принудительная проверка регистра в названиях файлов
-//    "experimentalDecorators": true,              // Включение поддержки декораторов
-//    "emitDecoratorMetadata": true,               // Генерация метаданных для декораторов (нужно для TypeORM)
-//    "sourceMap": true,                           // Генерация карт исходников (для отладки)
-//    "outDir": "./dist",                          // Директория для выходных файлов (после компиляции)
-//    "baseUrl": ".",                              // Базовый путь для резолвинга модулей
-//    "paths": {
-//      "@/*": ["src/*"]                           // Настройка алиасов для более чистого импорта
-//    },
-//    "resolveJsonModule": true                    // Поддержка импорта JSON файлов
-//  },
-//  "include": ["src/**/*.ts"],                    // Включение всех .ts файлов в папке src
-//  "exclude": ["node_modules", "dist"]            // Исключение node_modules и dist из компиляции
-//
-
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }
