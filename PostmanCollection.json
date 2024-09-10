@@ -20,11 +20,11 @@
           "raw": "{\n  \"email\": \"user@example.com\",\n  \"password\": \"yourpassword\"\n}"
         },
         "url": {
-          "raw": "http://localhost:3000/register",
+          "raw": "http://localhost:3000/api/register",
           "protocol": "http",
           "host": ["localhost"],
           "port": "3000",
-          "path": ["register"]
+          "path": ["api", "register"]
         }
       },
       "response": []
@@ -44,11 +44,11 @@
           "raw": "{\n  \"email\": \"user@example.com\",\n  \"password\": \"yourpassword\"\n}"
         },
         "url": {
-          "raw": "http://localhost:3000/login",
+          "raw": "http://localhost:3000/api/login",
           "protocol": "http",
           "host": ["localhost"],
           "port": "3000",
-          "path": ["login"]
+          "path": ["api", "login"]
         }
       },
       "response": []
@@ -64,11 +64,11 @@
           }
         ],
         "url": {
-          "raw": "http://localhost:3000/todos",
+          "raw": "http://localhost:3000/api/todos",
           "protocol": "http",
           "host": ["localhost"],
           "port": "3000",
-          "path": ["todos"]
+          "path": ["api", "todos"]
         }
       },
       "response": []
@@ -92,11 +92,11 @@
           "raw": "{\n  \"title\": \"Buy groceries\",\n  \"description\": \"Milk, Bread, Eggs\",\n  \"dueDate\": \"2024-09-15\",\n  \"location\": \"Supermarket\"\n}"
         },
         "url": {
-          "raw": "http://localhost:3000/todos",
+          "raw": "http://localhost:3000/api/todos",
           "protocol": "http",
           "host": ["localhost"],
           "port": "3000",
-          "path": ["todos"]
+          "path": ["api", "todos"]
         }
       },
       "response": []
@@ -112,11 +112,11 @@
           }
         ],
         "url": {
-          "raw": "http://localhost:3000/todos/1/weather",
+          "raw": "http://localhost:3000/api/todos/1/weather",
           "protocol": "http",
           "host": ["localhost"],
           "port": "3000",
-          "path": ["todos", "1", "weather"]
+          "path": ["api", "todos", "1", "weather"]
         }
       },
       "response": []
@@ -140,11 +140,11 @@
           "raw": "{\n  \"title\": \"Buy more groceries\",\n  \"description\": \"Milk, Bread, Eggs, Cheese\",\n  \"dueDate\": \"2024-09-16\",\n  \"location\": \"Supermarket\"\n}"
         },
         "url": {
-          "raw": "http://localhost:3000/todos/1",
+          "raw": "http://localhost:3000/api/todos/1",
           "protocol": "http",
           "host": ["localhost"],
           "port": "3000",
-          "path": ["todos", "1"]
+          "path": ["api", "todos", "1"]
         }
       },
       "response": []
@@ -160,11 +160,11 @@
           }
         ],
         "url": {
-          "raw": "http://localhost:3000/todos/1",
+          "raw": "http://localhost:3000/api/todos/1",
           "protocol": "http",
           "host": ["localhost"],
           "port": "3000",
-          "path": ["todos", "1"]
+          "path": ["api", "todos", "1"]
         }
       },
       "response": []
