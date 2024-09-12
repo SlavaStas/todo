@@ -36,10 +36,17 @@ cd todo-api
 
 Create a .env file in the root directory and set the following variables:
 ```bash
-PORT=3000
-DATABASE_URL=postgres://todo_user:password@localhost:5432/todo_db
+DB_HOST=db
+DB_PORT=5432
+DB_USERNAME=todo_user
+DB_PASSWORD=todo_pass
+DB_NAME=todo_db
+
 JWT_SECRET=your_jwt_secret
-OPENWEATHER_API_KEY=f88022c30ee50cead5b2e92d1082e59f
+
+OPENWEATHER_API_KEY=e4d1b74b9eedae94b689acd9ba9a614f
+
+PORT=3000
 ```
 
 ### 3. Install Dependencies
@@ -63,7 +70,7 @@ createdb todo_db
    2. Build and start the Docker containers:
    
       ```bash
-      docker-compose up --build
+      docker-compose up
       ```
    3. The application will be available at http://localhost:3000.
 
