@@ -89,7 +89,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"title\": \"Buy groceries\",\n  \"description\": \"Milk, Bread, Eggs\",\n  \"dueDate\": \"2024-09-15\",\n  \"location\": \"Supermarket\"\n}"
+          "raw": "{\n  \"title\": \"Buy groceries\",\n  \"description\": \"Milk, Bread, Eggs\",\n  \"dueDate\": \"2024-09-15\",\n  \"location\": \"Supermarket\"\n, \"city\": \"London\"\n}"
         },
         "url": {
           "raw": "http://localhost:3000/api/todos",
@@ -137,7 +137,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"title\": \"Buy more groceries\",\n  \"description\": \"Milk, Bread, Eggs, Cheese\",\n  \"dueDate\": \"2024-09-16\",\n  \"location\": \"Supermarket\"\n}"
+          "raw": "{\n  \"title\": \"Buy more groceries\",\n  \"description\": \"Milk, Bread, Eggs, Cheese\",\n  \"dueDate\": \"2024-09-16\",\n  \"location\": \"Supermarket\"\n, \"city\": \"Boston\"\n}"
         },
         "url": {
           "raw": "http://localhost:3000/api/todos/1",
