@@ -1,5 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
-import { User } from './User';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm";
+import { User } from "./User";
 
 @Entity()
 export class Todo {
@@ -12,11 +12,14 @@ export class Todo {
   @Column({ nullable: true })
   description?: string;
 
-  @Column({ type: 'date', nullable: true })
+  @Column({ type: "date", nullable: true })
   dueDate!: string;
 
   @Column({ nullable: true })
   location?: string;
+
+  @Column()
+  city!: string;
 
   @ManyToOne(() => User, user => user.todos)
   user!: User;

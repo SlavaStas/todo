@@ -4,8 +4,9 @@
   "main": "index.js",
   "type": "commonjs",
   "scripts": {
-    "start:dev": "nodemon --watch 'src/**/*.ts' --exec ts-node src/server.ts",
     "start": "node dist/server.js",
+    "start:dev": "nodemon --watch 'src/**/*.ts' --exec ts-node src/server.ts",
+    "start:docker": "wait-on tcp:db:5432 && npm run typeorm migration:run -- -d ./src/config/database.ts && npm run start:dev",
     "build": "tsc",
     "typeorm": "typeorm-ts-node-commonjs",
     "migration:create": "typeorm migration:create ./src/migrations/migration",
@@ -27,7 +28,8 @@
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
     "pg": "^8.12.0",
-    "typeorm": "^0.3.20"
+    "typeorm": "^0.3.20",
+    "wait-on": "^8.0.1"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.6",

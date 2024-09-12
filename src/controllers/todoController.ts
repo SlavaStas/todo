@@ -1,7 +1,8 @@
-import { Request, Response } from 'express';
-import { Todo } from '../entities/Todo';
-import { AppDataSource } from '../config/database';
-import { User } from '../entities/User';
+import { Request, Response } from "express";
+import { Todo } from "../entities/Todo";
+import { AppDataSource } from "../config/database";
+import { User } from "../entities/User";
+import { TodoService } from "../services/todoService";
 
 export const getTodos = async (req: Request, res: Response) => {
   const userId = (req as any).userId;
@@ -12,54 +13,46 @@ export const getTodos = async (req: Request, res: Response) => {
 
 export const createTodo = async (req: Request, res: Response) => {
   const userId = (req as any).userId;
-  const { title, description, dueDate, location } = req.body;
+  const { title, description, dueDate, location, city } = req.body;
 
-  const userRepository = AppDataSource.getRepository(User);
-  const user = await userRepository.findOne({ where: { id: userId } });
-
-  if (!user) {
-    return res.status(404).json({ message: 'User not found' });
+  const newTodo = await TodoService.createTodo({ title, description, dueDate, location, city }, userId);
+  if (!newTodo) {
+    return res.status(404).json({ message: "User not found" });
   }
 
-  const todoRepository = AppDataSource.getRepository(Todo);
-  const todo = todoRepository.create({ title, description, dueDate, location, user });
-  await todoRepository.save(todo);
-
-  return res.status(201).json(todo);
+  return res.status(201).json(newTodo);
 };
 
 export const updateTodo = async (req: Request, res: Response) => {
   const userId = (req as any).userId;
   const { id } = req.params;
-  const { title, description, dueDate, location } = req.body;
+  const { title, description, dueDate, location, city } = req.body;
 
-  const todoRepository = AppDataSource.getRepository(Todo);
-  let todo = await todoRepository.findOne({ where: { id: Number(id), user: { id: userId } } });
+  const updatedTodo = TodoService.updateTodo({
+    id: Number(id),
+    title,
+    description,
+    dueDate,
+    location,
+    city,
+  }, userId);
 
-  if (!todo) {
-    return res.status(404).json({ message: 'Todo not found' });
+  if (!updatedTodo) {
+    return res.status(404).json({ message: "Todo not found" });
   }
 
-  todo.title = title || todo.title;
-  todo.description = description || todo.description;
-  todo.dueDate = dueDate || todo.dueDate;
-  todo.location = location || todo.location;
-
-  await todoRepository.save(todo);
-  return res.json(todo);
+  return res.json(updatedTodo);
 };
 
 export const deleteTodo = async (req: Request, res: Response) => {
   const userId = (req as any).userId;
   const { id } = req.params;
 
-  const todoRepository = AppDataSource.getRepository(Todo);
-  const todo = await todoRepository.findOne({ where: { id: Number(id), user: { id: userId } } });
+  const result: string | null = await TodoService.deleteTodo(Number(id), userId);
 
-  if (!todo) {
-    return res.status(404).json({ message: 'Todo not found' });
+  if (!result) {
+    return res.status(404).json({ message: "Todo not found" });
   }
 
-  await todoRepository.remove(todo);
-  return res.json({ message: 'Todo deleted successfully' });
+  return res.json({ message: result });
 };

@@ -16,6 +16,8 @@ services:
 
   app:
     build: .
+    env_file:
+      - ./.env
     ports:
       - "3000:3000"
     depends_on:
@@ -23,11 +25,11 @@ services:
     environment:
       DATABASE_URL: postgres://user:password@db:5432/todo_db
       JWT_SECRET: your_secret_key
-      WEATHER_API_KEY: f88022c30ee50cead5b2e92d1082e59f
+      WEATHER_API_KEY: e4d1b74b9eedae94b689acd9ba9a614f
     volumes:
       - .:/app
       - /app/node_modules
-    command: npm run start:dev
+    command: npm run start:docker
     networks:
       - todo_network
 
@@ -36,4 +38,4 @@ volumes:
 
 networks:
   todo_network:
-    driver: bridge
+#    driver: bridge

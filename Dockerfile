@@ -11,7 +11,8 @@ RUN npm install --only=dev
 COPY . .
 
 RUN npm run build
+RUN npm run typeorm migration:run -- -d /app/src/config/database.ts
 
 EXPOSE 3000
 
-CMD ["npm", "run", "start:dev"]
+CMD ["npm", "run", "start:docker"]

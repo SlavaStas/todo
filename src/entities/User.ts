@@ -1,5 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
-import { Todo } from './Todo';
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
+import { Todo } from "./Todo";
 
 @Entity()
 export class User {
