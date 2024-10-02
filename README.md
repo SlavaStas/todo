@@ -28,8 +28,8 @@ This project is a simple Todo List API built using **Node.js**, **Express.js**, 
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your_username/todo-api.git
-cd todo-api
+git clone https://github.com/SlavaStas/todo.git
+cd todo
 ```
 
 ### 2. Environment Variables
